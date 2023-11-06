@@ -11,9 +11,9 @@
 
 <div class="hero">
 	<div class="hero-content">
-		<img alt="Svelte logotype" class="logotype" src={SvelteLogotype} />
+		<img alt="Svelte logotype" class="logotype" src={SvelteLogotype} width="300" height="56" />
 		<strong>
-			<span style="white-space: nowrap;">Cybernetically enhanced</span> <br /> web apps
+			<span style="white-space: nowrap">Cybernetically enhanced</span> <br /> web apps
 		</strong>
 		<div class="buttons">
 			<a href="https://learn.svelte.dev" rel="external" class="cta">
@@ -96,7 +96,6 @@
 		border-radius: var(--sk-border-radius);
 		box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.08);
 		color: #fff;
-		color: color-mix(in hwb, hsl(var(--sk-theme-1-hsl)) 10%, var(--sk-back-1) 95%);
 		transition: 0.5s var(--quint-out);
 		transition-property: box-shadow, color;
 	}
@@ -114,6 +113,7 @@
 
 	.logotype {
 		width: min(45vw, 40em);
+		height: auto;
 	}
 
 	@media (min-width: 800px) {

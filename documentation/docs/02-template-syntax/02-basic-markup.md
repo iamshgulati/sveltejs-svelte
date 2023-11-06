@@ -28,8 +28,9 @@ By default, attributes work exactly like their HTML counterparts.
 
 As in HTML, values may be unquoted.
 
+<!-- prettier-ignore -->
 ```svelte
-<input type="checkbox" />
+<input type=checkbox />
 ```
 
 Attribute values can contain JavaScript expressions.
@@ -55,8 +56,9 @@ All other attributes are included unless their value is [nullish](https://develo
 
 An expression might include characters that would cause syntax highlighting to fail in regular HTML, so quoting the value is permitted. The quotes do not affect how the value is parsed:
 
+<!-- prettier-ignore -->
 ```svelte
-<button disabled={number !== 42}>...</button>
+<button disabled="{number !== 42}">...</button>
 ```
 
 When the attribute name and value match (`name={name}`), they can be replaced with `{name}`.
@@ -84,13 +86,13 @@ An element or component can have multiple spread attributes, interspersed with r
 <Widget {...things} />
 ```
 
-`$$props` references all props that are passed to a component, including ones that are not declared with `export`. It is not generally recommended, as it is difficult for Svelte to optimise. But it can be useful in rare cases – for example, when you don't know at compile time what props might be passed to a component.
+`$$props` references all props that are passed to a component, including ones that are not declared with `export`. Using `$$props` will not perform as well as references to a specific prop because changes to any prop will cause Svelte to recheck all usages of `$$props`. But it can be useful in some cases – for example, when you don't know at compile time what props might be passed to a component.
 
 ```svelte
 <Widget {...$$props} />
 ```
 
-`$$restProps` contains only the props which are _not_ declared with `export`. It can be used to pass down other unknown attributes to an element in a component. It shares the same optimisation problems as `$$props`, and is likewise not recommended.
+`$$restProps` contains only the props which are _not_ declared with `export`. It can be used to pass down other unknown attributes to an element in a component. It shares the same performance characteristics compared to specific property access as `$$props`.
 
 ```svelte
 <input {...$$restProps} />
@@ -104,19 +106,22 @@ An element or component can have multiple spread attributes, interspersed with r
 
 ## Text expressions
 
+A JavaScript expression can be included as text by surrounding it with curly braces.
+
 ```svelte
 {expression}
 ```
 
-Text can also contain JavaScript expressions:
+Curly braces can be included in a Svelte template by using their [HTML entity](https://developer.mozilla.org/docs/Glossary/Entity) strings: `&lbrace;`, `&lcub;`, or `&#123;` for `{` and `&rbrace;`, `&rcub;`, or `&#125;` for `}`.
 
 > If you're using a regular expression (`RegExp`) [literal notation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp#literal_notation_and_constructor), you'll need to wrap it in parentheses.
 
+<!-- prettier-ignore -->
 ```svelte
 <h1>Hello {name}!</h1>
 <p>{a} + {b} = {a + b}.</p>
 
-<div>{/^[A-Za-z ]+$/.test(value) ? x : y}</div>
+<div>{(/^[A-Za-z ]+$/).test(value) ? x : y}</div>
 ```
 
 ## Comments

@@ -5,16 +5,33 @@ title: Component directives
 ## on:_eventname_
 
 ```svelte
+<!--- copy: false --->
 on:eventname={handler}
 ```
 
-Components can emit events using [createEventDispatcher](/docs/svelte#createeventdispatcher), or by forwarding DOM events. Listening for component events looks the same as listening for DOM events:
+Components can emit events using [`createEventDispatcher`](/docs/svelte#createeventdispatcher) or by forwarding DOM events.
+
+```svelte
+<script>
+	import { createEventDispatcher } from 'svelte';
+
+	const dispatch = createEventDispatcher();
+</script>
+
+<!-- programmatic dispatching -->
+<button on:click={() => dispatch('hello')}> one </button>
+
+<!-- declarative event forwarding -->
+<button on:click> two </button>
+```
+
+Listening for component events looks the same as listening for DOM events:
 
 ```svelte
 <SomeComponent on:whatever={handler} />
 ```
 
-As with DOM events, if the `on:` directive is used without a value, the component will _forward_ the event, meaning that a consumer of the component can listen for it.
+As with DOM events, if the `on:` directive is used without a value, the event will be forwarded, meaning that a consumer can listen for it.
 
 ```svelte
 <SomeComponent on:whatever />
@@ -23,6 +40,7 @@ As with DOM events, if the `on:` directive is used without a value, the componen
 ## --style-props
 
 ```svelte
+<!--- copy: false --->
 --style-props="anycssvalue"
 ```
 
@@ -57,7 +75,6 @@ For SVG namespace, the example above desugars into using `<g>` instead:
 Svelte's CSS Variables support allows for easily themeable components:
 
 ```svelte
-<!-- Slider.svelte -->
 <style>
 	.potato-slider-rail {
 		background-color: var(--rail-color, var(--theme-color, 'purple'));
@@ -92,18 +109,21 @@ You can bind to component props using the same syntax as for elements.
 <Keypad bind:value={pin} />
 ```
 
+While Svelte props are reactive without binding, that reactivity only flows downward into the component by default. Using `bind:property` allows changes to the property from within the component to flow back up out of the component.
+
 ## bind:this
 
 ```svelte
+<!--- copy: false --->
 bind:this={component_instance}
 ```
 
 Components also support `bind:this`, allowing you to interact with component instances programmatically.
-
-> Note that we can't do `{cart.empty}` since `cart` is `undefined` when the button is first rendered and throws an error.
 
 ```svelte
 <ShoppingCart bind:this={cart} />
 
 <button on:click={() => cart.empty()}> Empty shopping cart </button>
 ```
+
+> Note that we can't do `{cart.empty}` since `cart` is `undefined` when the button is first rendered and throws an error.

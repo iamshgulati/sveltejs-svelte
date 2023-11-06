@@ -23,7 +23,7 @@ export default {
 	},
 	module_script_variable_reactive_declaration: /** @param {string[]} names */ (names) => ({
 		code: 'module-script-reactive-declaration',
-		message: `${names.map(/** @param {any} name */ (name) => `"${name}"`).join(', ')} ${
+		message: `${names.map((name) => `"${name}"`).join(', ')} ${
 			names.length > 1 ? 'are' : 'is'
 		} declared in a module script and will not be reactive`
 	}),
@@ -175,7 +175,7 @@ export default {
 	 */ (role, props) => ({
 		code: 'a11y-role-has-required-aria-props',
 		message: `A11y: Elements with the ARIA role "${role}" must have the following attributes defined: ${props
-			.map(/** @param {any} name */ (name) => `"${name}"`)
+			.map((name) => `"${name}"`)
 			.join(', ')}`
 	}),
 	a11y_role_supports_aria_props: /**
@@ -271,7 +271,7 @@ export default {
 	a11y_click_events_have_key_events: {
 		code: 'a11y-click-events-have-key-events',
 		message:
-			'A11y: visible, non-interactive elements with an on:click event must be accompanied by an on:keydown, on:keyup, or on:keypress event.'
+			'A11y: visible, non-interactive elements with an on:click event must be accompanied by a keyboard event handler. Consider whether an interactive element such as <button type="button"> or <a> might be more appropriate. See https://svelte.dev/docs/accessibility-warnings#a11y-click-events-have-key-events for more details.'
 	},
 	a11y_missing_content: /** @param {string} name */ (name) => ({
 		code: 'a11y-missing-content',

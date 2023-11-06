@@ -1,5 +1,111 @@
 # svelte
 
+## 4.2.2
+
+### Patch Changes
+
+- fix: support camelCase properties on custom elements ([#9328](https://github.com/sveltejs/svelte/pull/9328))
+
+- fix: add missing plaintext-only value to contenteditable type ([#9242](https://github.com/sveltejs/svelte/pull/9242))
+
+- chore: upgrade magic-string to 0.30.4 ([#9292](https://github.com/sveltejs/svelte/pull/9292))
+
+- fix: ignore trailing comments when comparing nodes ([#9197](https://github.com/sveltejs/svelte/pull/9197))
+
+## 4.2.1
+
+### Patch Changes
+
+- fix: update style directive when style attribute is present and is updated via an object prop ([#9187](https://github.com/sveltejs/svelte/pull/9187))
+
+- fix: css sourcemap generation with unicode filenames ([#9120](https://github.com/sveltejs/svelte/pull/9120))
+
+- fix: do not add module declared variables as dependencies ([#9122](https://github.com/sveltejs/svelte/pull/9122))
+
+- fix: handle `svelte:element` with dynamic this and spread attributes ([#9112](https://github.com/sveltejs/svelte/pull/9112))
+
+- fix: silence false positive reactive component warning ([#9094](https://github.com/sveltejs/svelte/pull/9094))
+
+- fix: head duplication when binding is present ([#9124](https://github.com/sveltejs/svelte/pull/9124))
+
+- fix: take custom attribute name into account when reflecting property ([#9140](https://github.com/sveltejs/svelte/pull/9140))
+
+- fix: add `indeterminate` to the list of HTMLAttributes ([#9180](https://github.com/sveltejs/svelte/pull/9180))
+
+- fix: recognize option value on spread attribute ([#9125](https://github.com/sveltejs/svelte/pull/9125))
+
+## 4.2.0
+
+### Minor Changes
+
+- feat: move `svelteHTML` from language-tools into core to load the correct `svelte/element` types ([#9070](https://github.com/sveltejs/svelte/pull/9070))
+
+## 4.1.2
+
+### Patch Changes
+
+- fix: allow child element with slot attribute within svelte:element ([#9038](https://github.com/sveltejs/svelte/pull/9038))
+
+- fix: Add data-\* to svg attributes ([#9036](https://github.com/sveltejs/svelte/pull/9036))
+
+## 4.1.1
+
+### Patch Changes
+
+- fix: `svelte:component` spread props change not picked up ([#9006](https://github.com/sveltejs/svelte/pull/9006))
+
+## 4.1.0
+
+### Minor Changes
+
+- feat: add ability to extend custom element class ([#8991](https://github.com/sveltejs/svelte/pull/8991))
+
+### Patch Changes
+
+- fix: ensure `svelte:component` evaluates props once ([#8946](https://github.com/sveltejs/svelte/pull/8946))
+
+- fix: remove `let:variable` slot bindings from select binding dependencies ([#8969](https://github.com/sveltejs/svelte/pull/8969))
+
+- fix: handle destructured primitive literals ([#8871](https://github.com/sveltejs/svelte/pull/8871))
+
+- perf: optimize imports that are not mutated or reassigned ([#8948](https://github.com/sveltejs/svelte/pull/8948))
+
+- fix: don't add accessor twice ([#8996](https://github.com/sveltejs/svelte/pull/8996))
+
+## 4.0.5
+
+### Patch Changes
+
+- fix: generate type definition with nullable types ([#8924](https://github.com/sveltejs/svelte/pull/8924))
+
+## 4.0.4
+
+### Patch Changes
+
+- fix: claim svg tags in raw mustache tags correctly ([#8910](https://github.com/sveltejs/svelte/pull/8910))
+
+- fix: repair invalid raw html content during hydration ([#8912](https://github.com/sveltejs/svelte/pull/8912))
+
+## 4.0.3
+
+### Patch Changes
+
+- fix: handle falsy srcset values ([#8901](https://github.com/sveltejs/svelte/pull/8901))
+
+## 4.0.2
+
+### Patch Changes
+
+- fix: reflect all custom element prop updates back to attribute ([#8898](https://github.com/sveltejs/svelte/pull/8898))
+
+- fix: shrink custom element baseline a bit ([#8858](https://github.com/sveltejs/svelte/pull/8858))
+
+- fix: use non-destructive hydration for all `@html` tags ([#8880](https://github.com/sveltejs/svelte/pull/8880))
+
+- fix: align `disclose-version` exports specification ([#8874](https://github.com/sveltejs/svelte/pull/8874))
+
+- fix: check srcset when hydrating to prevent needless requests ([#8868](https://github.com/sveltejs/svelte/pull/8868))
+
 ## 4.0.1
 
 ### Patch Changes
